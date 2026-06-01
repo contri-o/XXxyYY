@@ -1,0 +1,48 @@
+Why are -r , -f called flags?
+-r = recursive
+-f = ? (eg. tail -f myfile.txt)
+
+
+on same level these files are present :
+                                          PARENT FOLDER
+
+cloud(dir),          | demofile.txt, | devops(dir),                          | myfile.txt,  |  newfile.txt
+(devops.txt- copied) |               | (newfile.txt- cp newfile.txt devops/) |              |
+ code written from   |               | (devops.txt- touch devops.txt)        |              |
+parent folder:
+cp devops/devops.txt cloud/
+
+
+
+
+
+
+
+Folder ke andar ki cheeze copy krni h toh:
+user $ ls
+user $ pwd
+/tmp/user/home
+user $ 
+mkdir devops/
+user $ cd devops/
+user $ pwd
+/tmp/user/home/devops
+user $ touch dev.txt
+user $ ld
+sh: ld: not found
+user $ ls
+dev.txt
+user $ cd ..
+user $ ls
+devops
+user $ mkdir cld/
+user $ ks
+sh: ks: not found
+user $ ls
+cld
+devops
+user $ cp -r devops/ cld/  (whole folder devops copied recursively in cld)
+user $ cd cld/
+user $ ls
+devops
+user $ 
