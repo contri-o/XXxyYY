@@ -13,6 +13,115 @@ parent folder:       |               | (cloud -copied)
 cp devops/devops.txt cloud/
 
 
+
+
+Prpt1:
+I added a file in the main repo from another github id how to get it merged in the main repo, now i have commited it but but i can't see the commited file from the account that created the main repo, what should be done , why isn't there a pull request shown?
+
+Scenario 1: You Committed Only on Your Local Machine
+Scenario 2: You Pushed Directly to the Main Repository
+Scenario 3: You Forked the Repository
+Scenario 4: You Created a New Branch
+
+Sc1 and Sc3 are true
+
+
+
+
+Prpt2:
+I did this in codespaces.
+Ans:
+A Codespace is essentially a cloud development environment connected to a GitHub repository.
+When you:
+Edit a file in Codespaces
+Commit it
+the commit is only in the Git repository that the Codespace is attached to.
+To get the change into another repository (or into the main branch), you typically need to push and possibly create a Pull Request.
+
+
+
+
+First question: What repository was the Codespace opened from?
+Was the Codespace created from:
+
+Option A: The original repository
+Example:
+owner/main-repo
+
+or
+
+Option B: Your fork
+Example:
+your-account/main-repo
+This distinction is crucial.
+
+Check where your commit went
+In the Codespaces terminal, run:
+git remote -v
+You'll see something like:
+origin  https://github.com/your-account/repo.git
+
+or
+origin  https://github.com/original-owner/repo.git
+This tells us which repository received the commit.
+
+
+
+
+
+
+
+CORRECT:
+what if it's option B
+If it's Option B (you created the Codespace from your fork), then what you're seeing is normal.
+What likely happened
+
+Suppose:
+Original repository (main repo)
+github.com/MainOwner/project
+
+Your fork
+github.com/YourAccount/project
+You opened Codespaces from YourAccount/project.
+Then you:
+Added a file
+Committed it
+Pushed it
+
+The change went to:
+YourAccount/project
+
+NOT to:
+MainOwner/project
+
+So when you switch to the account that owns the main repository, you won't see the file there yet.
+Why isn't there a Pull Request?
+A Pull Request is not automatically created when you commit or push.
+GitHub may show a "Compare & pull request" button, but it doesn't always appear immediately or at all.
+
+You often need to create the PR manually.
+How to create the Pull Request?
+
+Go to your fork:
+YourAccount/project
+Then:
+Click Pull requests
+Click New pull request
+Verify:
+Base repository = MainOwner/project
+Base branch = main
+Head repository = YourAccount/project
+Compare branch = the branch containing your changes
+Click Create pull request
+
+Now the owner of the main repository can review and merge it.
+
+
+
+
+
+
+
 NEXT 
 
 devops
