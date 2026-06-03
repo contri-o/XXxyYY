@@ -8,155 +8,102 @@ on same level these files are present :
 
 cloud(dir),          | demofile.txt, | devops(dir),                          | myfile.txt,  |  newfile.txt
 (devops.txt- copied) |               | (newfile.txt- cp newfile.txt devops/) |              |
- code written from   |               | (devops.txt- touch devops.txt)        |              |
-parent folder:
+,code written from   |               | (devops.txt- touch devops.txt)        |              |
+parent folder:       |               | (cloud -copied)
 cp devops/devops.txt cloud/
 
 
+NEXT 
 
-
-
-
-
-Folder ke andar ki cheeze copy krni h toh:
-user $ ls
-user $ pwd
-/tmp/user/home
-user $ 
-mkdir devops/
+devops
+user $ cp -r cloud/ devops/  (whole folder cloud copied recursively in devops frpm PARENT FOLDER)
 user $ cd devops/
-user $ pwd
-/tmp/user/home/devops
-user $ touch dev.txt
-user $ ld
-sh: ld: not found
 user $ ls
-dev.txt
-user $ cd ..
-user $ ls
+
+
+
+cloud (dir)     |      devops.txt       |      newfile.txt
+devops.txt                                                
+
+
+
+$ pwdbnew
 devops
-user $ mkdir cld/
-user $ ks
-sh: ks: not found
-user $ ls
-cld
-devops
-user $ cp -r devops/ cld/  (whole folder devops copied recursively in cld)
-user $ cd cld/
-user $ ls
-devops
-user $ 
+
+$cd ..
+$ls
+cloud (dir)     demofile.txt        devops (dir)        myfile.txt      newfile.txt
 
 
 
 
+/ErLiu
 
 
-Prpt1:
-I added a file in the main repo from another github id how to get it merged in the main repo, now i have commited it but but i can't see the commited file from the account that created the main repo, what should be done , why isn't there a pull request shown?
-
-Scenario 1: You Committed Only on Your Local Machine
-Scenario 2: You Pushed Directly to the Main Repository
-Scenario 3: You Forked the Repository
-Scenario 4: You Created a New Branch
-
-Sc1 and Sc3 are true
+$ cd cloud/
+$ ls
+devops.txt
+$ cd ..
+$ cd devops/
+$ ls
+cloud(dir)      devops.txt       newfile.txt
 
 
+Now from here (inside devops dir) I have to "move" newfile.txt to "main" cloud(dir)
+$ mv newfile.txt cloud/  (WRONG, move to MAIN DIR)
+
+MAIN CLOUD DIR
+$ mv newfile.txt .. cloud/ (WRONG, what " .." ?)
+
+ ../ FOLDER (../ piche waale folder(PARENT FOLDER), mein jo cloud folder hai)
+$ mv newfile.txt ../cloud/
 
 
-Prpt2:
-I did this in codespaces.
-Ans:
-A Codespace is essentially a cloud development environment connected to a GitHub repository.
-When you:
-Edit a file in Codespaces
-Commit it
-the commit is only in the Git repository that the Codespace is attached to.
-To get the change into another repository (or into the main branch), you typically need to push and possibly create a Pull Request.
+                                          PARENT FOLDER
+
+cloud(dir),                 | demofile.txt, | devops(dir),                          | myfile.txt,  |  newfile.txt
+(devops.txt- copied)        |               | (newfile.txt- cp newfile.txt devops/) |              |
+,code written from          |               | (devops.txt- touch devops.txt)        |              |
+parent folder:              |               | (cloud -copied)
+cp devops/devops.txt cloud/ |               | 
+
+(newfile.txt)               |               | (mv newfile.txt ../cloud/)            |              |
+                                            This file is removed from here.
 
 
-
-
-First question: What repository was the Codespace opened from?
-Was the Codespace created from:
-
-Option A: The original repository
-Example:
-owner/main-repo
-
-or
-
-Option B: Your fork
-Example:
-your-account/main-repo
-This distinction is crucial.
-
-Check where your commit went
-In the Codespaces terminal, run:
-git remote -v
-You'll see something like:
-origin  https://github.com/your-account/repo.git
-
-or
-origin  https://github.com/original-owner/repo.git
-This tells us which repository received the commit.
+Rename    , (stage changes???)   
+mv devops/ linux_for_devops (linux_for_devops ke piche slash nhi laga rhe hum , why?)
+isme toh lagaya gai cloud kr piche slash , as that means folder: $ mv newfile.txt ../cloud/
 
 
 
+/SanLiu
 
 
+user$ touch myfile.txt
+user$ cat myfile.txt
+user$ echo "this is a file."
+this is a file.
+user$ echo "this is a file." > myfile.txt
+user$ cat myfile.txt
+this is a file.
+user$ wc myfile.txt
+ 1  4 16 myfile.txt
+user$ echo "this hat" > myfile.txt
+user$ cat myfile.txt
+this hat
+user$ wc myfile.txt
+1 2 9 myfile.txt
+user$ cut -b 2 myfile.txt
+h
+user$ cut -b 1 myfile.txt
+t
+user$ cut -b 1.5 myfile.txt
+cut: invalid byte/character position ‘.5’
+Try 'cut --help' for more information.
+user$ cut -b 5 myfile.txt
+(empty sapce)
+user$ cut -b 1-6 myfile.txt
+this h
 
-
-CORRECT:
-what if it's option B
-If it's Option B (you created the Codespace from your fork), then what you're seeing is normal.
-What likely happened
-
-Suppose:
-Original repository (main repo)
-github.com/MainOwner/project
-
-Your fork
-github.com/YourAccount/project
-You opened Codespaces from YourAccount/project.
-Then you:
-Added a file
-Committed it
-Pushed it
-
-The change went to:
-YourAccount/project
-
-NOT to:
-MainOwner/project
-
-So when you switch to the account that owns the main repository, you won't see the file there yet.
-Why isn't there a Pull Request?
-A Pull Request is not automatically created when you commit or push.
-GitHub may show a "Compare & pull request" button, but it doesn't always appear immediately or at all.
-
-You often need to create the PR manually.
-How to create the Pull Request?
-
-Go to your fork:
-YourAccount/project
-Then:
-Click Pull requests
-Click New pull request
-Verify:
-Base repository = MainOwner/project
-Base branch = main
-Head repository = YourAccount/project
-Compare branch = the branch containing your changes
-Click Create pull request
-
-Now the owner of the main repository can review and merge it.
-
-
-
-
-
-
-
-
+ 
