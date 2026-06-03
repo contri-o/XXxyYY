@@ -180,7 +180,7 @@ cp devops/devops.txt cloud/ |               |
                                             This file is removed from here.
 
 
-Rename    , (stage changes???)   
+Rename    , (what is stage changes???)   
 mv devops/ linux_for_devops (linux_for_devops ke piche slash nhi laga rhe hum , why?)
 isme toh lagaya gai cloud kr piche slash , as that means folder: $ mv newfile.txt ../cloud/
 
@@ -224,3 +224,98 @@ Go to forked repo then Sync Fork!
 QUES: repo is synced but the codespaces are not?
 ANS: ans in terminal_log.txt
  
+
+
+user$ ls
+
+user$ pw
+sh: pw: not found
+
+user$ pwd
+/tmp/user/home
+
+user$ touch dmfile.txt
+
+user$ ls
+dmfile.txt
+
+user$ mkdir cyde
+
+user$ cd cyde/
+
+user$ mkdir deo
+
+user$ cd deo/
+
+user$ touch wowfile.txt
+
+user$ pwd
+/tmp/user/home/cyde/deo
+
+user$ cd ..
+
+user$ cd ..
+
+user$ ls
+cyde
+dmfile.txt
+
+user$ ln -s /tmp/user/home/cyde/deo/wowfile.txt softlink-file
+
+user$ ls
+cyde
+dmfile.txt
+softlink-file
+
+user$ # now tis is not actually a link but when you write cat softlink-file then the contet inside will be printed without writing the whole path.
+
+user$ cat softlink-file
+cat: softlink-file: No such file or directory
+
+user$ ls -ltr
+total 0
+-rw-r--r-- 1 1000 developers  0 Jun  3 17:32 dmfile.txt
+drwxr-xr-x 3 1000 developers 60 Jun  3 17:32 cyde
+lrwxrwxrwx 1 1000 developers 35 Jun  3 17:32 softlink-file -> /tmp/user/home/cyde/deo/wowfile.txt
+
+user$ pwd
+/tmp/user/home
+
+user$ cd cyde/
+
+user$ cd del/wowfile.txt
+sh: cd: line 0: can't cd to del/wowfile.txt: No such file or directory
+
+user$ cd deo/wowfile.txt
+sh: cd: line 0: can't cd to deo/wowfile.txt: Not a directory
+
+user$ cd deo/
+
+user$ cat wowfile.txt
+
+user$ echo
+
+
+user$ echo "This is a softlink file , Hii!" > wowfile.txt
+
+user$ cat wowfile.txt
+This is a softlink file , Hii!
+
+user$ cd ..
+
+user$ cd ..
+
+user$ ls
+cyde
+dmfile.txt
+softlink-file
+
+user$ cat softlink-file
+cat: softlink-file: No such file or directory
+
+user$ tee softlink-file
+tee: softlink-file: No such file or directory
+
+# Why is it saying no such file or directory again and again.
+
+
