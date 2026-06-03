@@ -27,7 +27,7 @@ devops.txt
 
 
 
-$ pwd
+$ pwdbnew
 devops
 
 $cd ..
@@ -71,4 +71,9 @@ cp devops/devops.txt cloud/ |               |
                                             This file is removed from here.
 
 
-Rename    , (stage changes???)                                   
+Rename    , (stage changes???)   
+mv devops/ linux_for_devops (linux_for_devops ke piche slash nhi laga rhe hum , why?)
+isme toh lagaya gai cloud kr piche slach , as that means folder: $ mv newfile.txt ../cloud/
+
+
+

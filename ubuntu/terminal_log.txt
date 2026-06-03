@@ -1,0 +1,88 @@
+    1  ls
+    2  cd Lrn/
+    3  cd Lrn
+    4  pwd
+    5  mkdir ubuntu/
+    6  ls
+    7  cd ubuntu/
+    8  mkdir cloud
+    9  ls
+   10  touch demofile.txt
+   11  ls
+   12  mkdir devops
+   13  touch myfile.txt newfile.txt
+   14  ls
+   15  cp newfile.txt devops/
+   16  cd devops/
+   17  ls
+   18  cd ..
+   19  cd devops/
+   20  touch devops.txt
+   21  ls
+   22  cd ..
+   23  ls
+   24  cp devops/devops.txt cloud/
+   25  cd cloud/
+   26  ls
+   27  cp -r cloud/ devops/
+   28  cd ..
+   29  ls
+   30  cp -r cloud/ devops/
+   31  cd devops/
+   32  cd cloud/
+   33  ls
+   34  cd ..
+   35  ls
+   36  cd cloud/
+   37  ls
+   38  cd ..
+   39  mv devops/ newfile.txt .. cloud/
+   40  mv devops/ newfile.txt ../cloud/
+   41  mv devops/newfile.txt ../cloud/
+   42  mv newfile.txt ../cloud/
+   43  cd devops/
+   44  ls
+   45  pwd
+   46  cd cloud/
+   47  ls
+   48  mv devops ../
+   49  ls
+   50  cd ..
+   51  ls
+   52  cd devops/
+   53  ls
+   54  cp newfile.txt ..
+   55  ls
+   56  cd ..
+   57  ls
+   58  cd devops/
+   59  mv newfile.txt ../ could/
+   60  cd devops/
+   61  cd ..
+   62  cd devops
+   63  mv newfile.tcxt ../ cloud/
+   64  mv newfile.txt ../cloud/
+   65  ls
+   66  cd ..
+   67  cd cloud/
+   68  ls
+   69  cd ..
+   70  ls
+   71  mv devops/ linux_for_devops/
+   72  ls
+   73  mv linux_for_devops/ devops
+   74  ls
+   75  script terminal_log.txt
+   76  history
+   77  history > terminal_log.txt
+
+
+
+
+To record all terminal commands: script terminal_log.txt 
+when finished:exit
+
+To copy all commands from treminal:
+history
+
+to save them to a file: history > your_file_name.txt
