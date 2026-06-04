@@ -319,3 +319,93 @@ tee: softlink-file: No such file or directory
 # Why is it saying no such file or directory again and again.
 
 
+
+
+
+/SiLiu
+@contri-o ➜ /workspaces/XXxyYY/ubuntu/linux_for_devops (main) $ cd cloud/
+@contri-o ➜ .../XXxyYY/ubuntu/linux_for_devops/cloud (main) $ ls
+devops.txt
+@contri-o ➜ .../XXxyYY/ubuntu/linux_for_devops/cloud (main) $ pwd
+/workspaces/XXxyYY/ubuntu/linux_for_devops/cloud
+
+@contri-o ➜ .../XXxyYY/ubuntu/linux_for_devops/cloud (main) $ cd .
+@contri-o ➜ .../XXxyYY/ubuntu/linux_for_devops/cloud (main) $ cd ..
+@contri-o ➜ /workspaces/XXxyYY/ubuntu/linux_for_devops (main) $ cd ..
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ln -s ^C
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ^C
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ln -s /workspaces/XXxyYY/ubuntu/linux_for_devops/cloud/devops.txt softlink-file
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls
+cloud  demofile.txt  linux_for_devops  myfile.txt  newfile.txt  softlink-file  terminal_log.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cat softlink-file
+this is a softlink-file
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cd linux_for_devops/
+@contri-o ➜ /workspaces/XXxyYY/ubuntu/linux_for_devops (main) $ cd cloud/
+@contri-o ➜ .../XXxyYY/ubuntu/linux_for_devops/cloud (main) $ ls
+devops.txt
+@contri-o ➜ .../XXxyYY/ubuntu/linux_for_devops/cloud (main) $ cd ..
+@contri-o ➜ /workspaces/XXxyYY/ubuntu/linux_for_devops (main) $ cd ..
+
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls -ltr
+total 12
+-rw-rw-rw-  1 codespace codespace    0 Jun  2 10:18 demofile.txt
+-rw-rw-rw-  1 codespace codespace    0 Jun  2 10:22 myfile.txt
+-rw-rw-rw-  1 codespace codespace    0 Jun  2 10:38 newfile.txt
+drwxrwxrwx+ 3 codespace codespace 4096 Jun  2 10:44 linux_for_devops
+drwxrwxrwx+ 2 codespace codespace 4096 Jun  2 10:44 cloud
+-rw-rw-rw-  1 codespace codespace 2827 Jun  3 16:04 terminal_log.txt
+lrwxrwxrwx  1 codespace codespace   59 Jun  4 06:13 softlink-file -> /workspaces/XXxyYY/ubuntu/linux_for_devops/cloud/devops.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ rm linux_for_devops/cloud/devops.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls
+cloud  demofile.txt  linux_for_devops  myfile.txt  newfile.txt  softlink-file  terminal_log.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ touch linux_for_devops/cloud/devops.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls
+cloud  demofile.txt  linux_for_devops  myfile.txt  newfile.txt  softlink-file  terminal_log.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cat softlink-fiel
+cat: softlink-fiel: No such file or directory
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cat softlink-file
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cat softlink-file
+This was removed and then created again!
+
+
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ln /workspaces/XXxyYY/ubuntu/linux_for_devops/cloud/devops.txt hardlink-file
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls
+cloud  demofile.txt  hardlink-file  linux_for_devops  myfile.txt  newfile.txt  softlink-file  terminal_log.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $  cat hardlink-file
+This was removed and then created again!
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ rm hardlink-file
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls
+cloud  demofile.txt  linux_for_devops  myfile.txt  newfile.txt  softlink-file  terminal_log.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ echo "hello" | tee hello.txt
+hello
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls
+cloud  demofile.txt  hello.txt  linux_for_devops  myfile.txt  newfile.txt  softlink-file  terminal_log.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ echo "bas e toil" > hello.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ sort hello.txt
+bas e toil
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ echo "toil alp cat" > hello.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ sort hello.txt
+toil alp cat
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ sort hello.txt
+alp
+get
+pot
+zeb
+
+
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ diff demofile.txt newfile.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ diff myfile.txt devops.txt
+diff: devops.txt: No such file or directory
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cat demofile.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ echo "hello" > demofile.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ echo "hello bhen" > myfile.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ diff demofile.txt newfile.txt
+1d0
+< hello
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cat myfile.txt
+hello bhen
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cat demofile.txt
+hello
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ diff demofile.txt newfile.txt
+1d0
+< hello

@@ -86,3 +86,45 @@ To copy all commands from treminal:
 history
 
 to save them to a file: history > your_file_name.txt
+
+
+
+/SanLiu
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+@contri-o ➜ /workspaces/XXxyYY (main) $ git fetch origin
+
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (4/4), 2.63 KiB | 897.00 KiB/s, done.
+From https://github.com/contri-o/XXxyYY
+   ea62290..6f29b45  main       -> origin/main
+
+
+@contri-o ➜ /workspaces/XXxyYY (main) $ git checkout main
+Already on 'main'
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+
+@contri-o ➜ /workspaces/XXxyYY (main) $ git pull origin main
+From https://github.com/contri-o/XXxyYY
+ * branch            main       -> FETCH_HEAD
+Updating ea62290..6f29b45
+Fast-forward
+ Lrn | 109 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 109 insertions(+)
+
+ 
+@contri-o ➜ /workspaces/XXxyYY (main) $ history
+    1  exit
+    2  git status
+    3  git fetch origin
+    4  git checkout main
+    5  git pull origin main
+    6  history

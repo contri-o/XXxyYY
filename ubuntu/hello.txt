@@ -1,0 +1,4 @@
+zeb
+pot
+alp
+get
