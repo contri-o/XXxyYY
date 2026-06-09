@@ -409,3 +409,89 @@ hello
 @contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ diff demofile.txt newfile.txt
 1d0
 < hello
+
+
+
+/WuLiu
+
+
+
+
+/BaLiu
+ uname
+Linux
+@contri-o ➜ /workspaces/XXxyYY (main) $ uptime
+ 05:18:43 up 33 min,  0 user,  load average: 0.05, 0.27, 0.51
+@contri-o ➜ /workspaces/XXxyYY (main) $ who
+@contri-o ➜ /workspaces/XXxyYY (main) $ whoami
+codespace
+@contri-o ➜ /workspaces/XXxyYY (main) $ which
+@contri-o ➜ /workspaces/XXxyYY (main) $ which XXxyYY
+@contri-o ➜ /workspaces/XXxyYY (main) $ which bash
+/usr/bin/bash
+@contri-o ➜ /workspaces/XXxyYY (main) $ which etc
+@contri-o ➜ /workspaces/XXxyYY (main) $ cd ..
+@contri-o ➜ /workspaces $ ls
+XXxyYY
+@contri-o ➜ /workspaces $ cd ..
+@contri-o ➜ / $ ls
+bin                boot  etc  home  lib.usr-is-merged  lib64  mnt  proc  run   sbin.usr-is-merged  sys  usr  vscode
+bin.usr-is-merged  dev   go   lib   lib32              media  opt  root  sbin  srv                 tmp  var  workspaces
+
+
+@contri-o ➜ / $ which passwd
+/usr/bin/passwd
+@contri-o ➜ / $ id
+uid=1000(codespace) gid=1000(codespace) groups=1000(codespace),985(pipx),986(python),987(oryx),988(golang),989(docker),990(sdkman),991(rvm),992(php),993(conda),994(nvs),995(nvm),996(hugo),1001(ssh)
+@contri-o ➜ / $ which python
+/home/codespace/.python/current/bin/python
+@contri-o ➜ / $ which java
+/home/codespace/java/current/bin/java
+@contri-o ➜ / $ cd workspaces/
+@contri-o ➜ /workspaces $ cd XXxyYY/
+@contri-o ➜ /workspaces/XXxyYY (main) $ ls
+LICENSE  Lrn  README.md  ubuntu
+
+@contri-o ➜ /workspaces/XXxyYY (main) $ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+messagebus:x:100:101::/nonexistent:/usr/sbin/nologin
+polkitd:x:997:997:User for polkitd:/:/usr/sbin/nologin
+codespace:x:1000:1000::/home/codespace:/bin/bash
+sshd:x:101:65534::/run/sshd:/usr/sbin/nologin
+
+
+@contri-o ➜ /workspaces/XXxyYY (main) $ cd root
+bash: cd: root: No such file or directory
+@contri-o ➜ /workspaces/XXxyYY (main) $ cd /
+@contri-o ➜ / $ cd workspaces/
+@contri-o ➜ /workspaces $ cd XXxyYY
+@contri-o ➜ /workspaces/XXxyYY (main) $ shutdown
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+@contri-o ➜ /workspaces/XXxyYY (main) $ sudo shutdwon
+sudo: shutdwon: command not found
+
+
+
+
+
+
+/JiuLiu
