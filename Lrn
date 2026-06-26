@@ -196,6 +196,55 @@ this is a file.
 user$ echo "this is a file." > myfile.txt
 user$ cat myfile.txt
 this is a file.
+
+
+
+
+
+Added 2nd line in a single file :
+ "3rd line," >> cfile.txt
+
+user$ cat cfile.txt
+ the clo file
+: the 2nd line , is it happening ?
+3rd line,
+
+
+
+Now trying to add multiple lines in a file at once but thi blunder happened? :
+
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF
+
+user$ echo -e " 4th line\n5th line,,\nlet's see is it working?" >> cfile.txt
+
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF
+user$ cat cfile.txt
+user$ head cfile.txt
+ the clo file
+: the 2nd line , is it happening ?
+3rd line,
+cat <<EOF >> cfile.txt
+cat <<EOF >> cfile.txt
+cat <<EOF >> cfile.txt
+cat <<EOF 
+echo -e " 4th line\n5th line,,\nlet's see is it working?" >> cfile.txt ; __cr_rc__=0 ; echo 
+
+user$ 
+
+
+
+
+
+
+
 user$ wc myfile.txt
  1  4 16 myfile.txt
 user$ echo "this hat" > myfile.txt
