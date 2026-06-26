@@ -242,7 +242,17 @@ user$
 
 
 
+GOTI IT, Multiple lines appended in file at once:
 
+user$ touch file.txt
+user$ printf "1\nSecond\nThird two\n" >> file.txt
+user$ cat file.txt
+1
+Second
+Third two
+
+
+wc { no. of lines, words, storage-bytes present}
 
 
 user$ wc myfile.txt
@@ -252,7 +262,7 @@ user$ cat myfile.txt
 this hat
 user$ wc myfile.txt
 1 2 9 myfile.txt
-user$ cut -b 2 myfile.txt
+user$ cut -b 2 myfile.txt  (2nd place letter is shown from the given file)
 h
 user$ cut -b 1 myfile.txt
 t
