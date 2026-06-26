@@ -196,6 +196,55 @@ this is a file.
 user$ echo "this is a file." > myfile.txt
 user$ cat myfile.txt
 this is a file.
+
+
+
+
+
+Added 2nd line in a single file :
+ "3rd line," >> cfile.txt
+
+user$ cat cfile.txt
+ the clo file
+: the 2nd line , is it happening ?
+3rd line,
+
+
+
+Now trying to add multiple lines in a file at once but thi blunder happened? :
+
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF
+
+user$ echo -e " 4th line\n5th line,,\nlet's see is it working?" >> cfile.txt
+
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF >> cfile.txt
+user$ cat <<EOF
+user$ cat cfile.txt
+user$ head cfile.txt
+ the clo file
+: the 2nd line , is it happening ?
+3rd line,
+cat <<EOF >> cfile.txt
+cat <<EOF >> cfile.txt
+cat <<EOF >> cfile.txt
+cat <<EOF 
+echo -e " 4th line\n5th line,,\nlet's see is it working?" >> cfile.txt ; __cr_rc__=0 ; echo 
+
+user$ 
+
+
+
+
+
+
+
 user$ wc myfile.txt
  1  4 16 myfile.txt
 user$ echo "this hat" > myfile.txt
@@ -514,11 +563,17 @@ useradd: cannot lock /etc/passwd; try again later.
 
 
 
-I have crete a user name 'YY'
+I have created a user name 'YY'
 pass:123
 now how to remove this user and how t get the location of this, as I can't find the location using 
 $ which YY
-so now what to do?
+
+GOT THE LOC using cat /etc/passwd
+YY:x:1001:1002::/home/YY:/bin/sh
+
+so now why is it in this loc because i didnt use "-m"?
+$ sudo useradd -m YY
+
 before i created a pasword and i tried to 
 $su YY
 it asked me for a password , how can it have a password when i have not created it yet? 
@@ -530,6 +585,11 @@ it asked me for a password , how can it have a password when i have not created 
  $ script terminal_log.txt
 Script started, output log file is 'terminal_log.txt'.
 @MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ sudo useradd YY
+since 
+
+
+
+
 @MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ ls
 LICENSE  Lrn  README.md  terminal_log.txt  ubuntu
 @MuskanSaxena6 ➜ /workspaces/XXxyYY (main) $ which YY
@@ -666,3 +726,230 @@ error: Your local changes to the following files would be overwritten by merge:
         Lrn
 Please commit your changes or stash them before you merge.
 Aborting
+
+
+
+
+
+/ShiYiLiu
+@contri-o ➜ /workspaces/XXxyYY (main) $ su YY
+su: user YY does not exist or the user entry does not contain all the required fields
+@contri-o ➜ /workspaces/XXxyYY (main) $ cd ..
+@contri-o ➜ /workspaces $ cd ..
+@contri-o ➜ / $ su YY
+su: user YY does not exist or the user entry does not contain all the required fields
+@contri-o ➜ / $ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+messagebus:x:100:101::/nonexistent:/usr/sbin/nologin
+polkitd:x:997:997:User for polkitd:/:/usr/sbin/nologin
+codespace:x:1000:1000::/home/codespace:/bin/bash
+sshd:x:101:65534::/run/sshd:/usr/sbin/nologin
+
+
+@contri-o ➜ / $ sudo useradd -m YY
+@contri-o ➜ / $ ls
+bin                boot  etc  home  lib.usr-is-merged  lib64  mnt  proc  run   sbin.usr-is-merged  sys  usr  vscode
+bin.usr-is-merged  dev   go   lib   lib32              media  opt  root  sbin  srv                 tmp  var  workspaces
+@contri-o ➜ / $ cd workspaces/
+@contri-o ➜ /workspaces $ ls
+XXxyYY
+@contri-o ➜ /workspaces $ cd XXxyYY
+@contri-o ➜ /workspaces/XXxyYY (main) $ ls
+LICENSE  Lrn  README.md  ubuntu
+@contri-o ➜ /workspaces/XXxyYY (main) $ cd ..
+@contri-o ➜ /workspaces $ cd ..
+@contri-o ➜ / $ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+messagebus:x:100:101::/nonexistent:/usr/sbin/nologin
+polkitd:x:997:997:User for polkitd:/:/usr/sbin/nologin
+codespace:x:1000:1000::/home/codespace:/bin/bash
+sshd:x:101:65534::/run/sshd:/usr/sbin/nologin
+YY:x:1001:1002::/home/YY:/bin/sh
+
+
+@contri-o ➜ / $ ls
+bin                boot  etc  home  lib.usr-is-merged  lib64  mnt  proc  run   sbin.usr-is-merged  sys  usr  vscode
+bin.usr-is-merged  dev   go   lib   lib32              media  opt  root  sbin  srv                 tmp  var  workspaces
+@contri-o ➜ / $ cd home/
+@contri-o ➜ /home $ ls
+YY  codespace  vscode
+@contri-o ➜ /home $ cd workspaces
+bash: cd: workspaces: No such file or directory
+@contri-o ➜ /home $ cd ..
+@contri-o ➜ / $ cd workspaces
+@contri-o ➜ /workspaces $ passwd YY
+passwd: You may not view or modify password information for YY.
+@contri-o ➜ /workspaces $ cd ..
+@contri-o ➜ / $ passwd YY
+passwd: You may not view or modify password information for YY.
+@contri-o ➜ / $ sudo passwd YY
+New password: 
+Retype new password: 
+passwd: password updated successfully
+@contri-o ➜ / $ su YY
+Password: 
+$ exit
+@contri-o ➜ / $ sudo userdel YY
+@contri-o ➜ / $ ls
+bin                boot  etc  home  lib.usr-is-merged  lib64  mnt  proc  run   sbin.usr-is-merged  sys  usr  vscode
+bin.usr-is-merged  dev   go   lib   lib32              media  opt  root  sbin  srv                 tmp  var  workspaces
+@contri-o ➜ / $ cd home
+@contri-o ➜ /home $ ls
+YY  codespace  vscode
+@contri-o ➜ /home $ ls
+YY  codespace  vscode
+@contri-o ➜ /home $ cd ..
+@contri-o ➜ / $ sudo userdel YY
+userdel: user 'YY' does not exist
+@contri-o ➜ / $ su YY
+su: user YY does not exist or the user entry does not contain all the required fields
+
+
+@contri-o ➜ / $ cd home
+@contri-o ➜ /home $ ls
+YY  codespace  vscode
+@contri-o ➜ /home $ cd YY
+bash: cd: YY: Permission denied
+@contri-o ➜ /home $ su YY
+su: user YY does not exist or the user entry does not contain all the required fields
+@contri-o ➜ /home $ cd ..
+@contri-o ➜ / $ sudo useradd -m YY
+useradd: warning: the home directory /home/YY already exists.
+useradd: Not copying any file from skel directory into it.
+
+
+
+
+su YY
+Password: 
+su: Authentication failure
+@contri-o ➜ / $ su YY
+Password: 
+su: Authentication failure
+@contri-o ➜ / $ sudo passwd YY
+New password: 
+Retype new password: 
+passwd: password updated successfully
+@contri-o ➜ / $ su YY
+Password: 
+$ exit 
+@contri-o ➜ / $ sudo gpasswd -a YY devops
+gpasswd: group 'devops' does not exist in /etc/group
+@contri-o ➜ / $ cd workspaces
+@contri-o ➜ /workspaces $ cd XXxyYY
+@contri-o ➜ /workspaces/XXxyYY (main) $ ls
+LICENSE  Lrn  README.md  ubuntu
+@contri-o ➜ /workspaces/XXxyYY (main) $ cd ubuntu
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls
+cloud  demofile.txt  hello.txt  linux_for_devops  myfile.txt  newfile.txt  softlink-file  terminal_log.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cd linux_for_devops
+@contri-o ➜ /workspaces/XXxyYY/ubuntu/linux_for_devops (main) $ ls
+cloud  devops.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu/linux_for_devops (main) $ cd ..
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ sudo gpasswd -a YY linux_for_devops
+gpasswd: group 'linux_for_devops' does not exist in /etc/group
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ /
+bash: /: Is a directory
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ cd /
+@contri-o ➜ / $ ls
+bin                boot  etc  home  lib.usr-is-merged  lib64  mnt  proc  run   sbin.usr-is-merged  sys  usr  vscode
+bin.usr-is-merged  dev   go   lib   lib32              media  opt  root  sbin  srv                 tmp  var  workspaces
+@contri-o ➜ / $ cd etc
+@contri-o ➜ /etc $ ls
+ODBCDataSources         cron.daily      gitconfig    kernel         magic.mime      pam.d        rmt                sudoers
+PackageKit              cron.weekly     gnutls       ld.so.cache    mailcap         passwd       rpc                sudoers.d
+X11                     csh.login       gprofng.rc   ld.so.conf     mailcap.order   passwd-      rvmrc              sysctl.conf
+adduser.conf            dbus-1          groff        ld.so.conf.d   manpath.config  perl         security           sysctl.d
+alternatives            debconf.conf    group        legal          mime.types      polkit-1     selinux            systemd
+apache2                 debian_version  group-       libaudit.conf  mke2fs.conf     profile      services           terminfo
+apparmor.d              debuginfod      gshadow      libnl-3        modules-load.d  profile.d    sgml               timezone
+apt                     default         gshadow-     lighttpd       mtab            protocols    shadow             tmpfiles.d
+bash.bashrc             deluser.conf    gss          locale.alias   mysql           python3      shadow-            ucf.conf
+bash_completion         dpkg            host.conf    locale.conf    nanorc          python3.12   shells             ufw
+bash_completion.d       e2scrub.conf    hostname     locale.gen     netconfig       rc0.d        skel               update-motd.d
+bindresvport.blacklist  emacs           hosts        localtime      networks        rc1.d        ssh                vconsole.conf
+binfmt.d                environment     hosts.allow  logcheck       nftables.conf   rc2.d        ssl                vim
+ca-certificates         ethertypes      hosts.deny   login.defs     nsswitch.conf   rc3.d        subgid             wgetrc
+ca-certificates.conf    fish            init.d       logrotate.d    odbc.ini        rc4.d        subgid-            xattr.conf
+cloud                   fonts           inputrc      lsb-release    odbcinst.ini    rc5.d        subuid             xdg
+credstore               fstab           iproute2     lynx           opt             rc6.d        subuid-            xml
+credstore.encrypted     gai.conf        issue        machine-id     os-release      rcS.d        sudo.conf          zsh
+cron.d                  gdb             issue.net    magic          pam.conf        resolv.conf  sudo_logsrvd.conf
+@contri-o ➜ /etc $ cd cloud
+@contri-o ➜ /etc/cloud $ ls
+build.info
+@contri-o ➜ /etc/cloud $ cat build.info
+build_name: ubuntu-oci:minimized
+serial: 20260210.1
+@contri-o ➜ /etc/cloud $ cd ..
+@contri-o ➜ /etc $ cd /
+@contri-o ➜ / $ cd workspaces/XXxyYY/
+@contri-o ➜ /workspaces/XXxyYY (main) $ cd ubuntu
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls -l
+total 36
+drwxrwxrwx+ 2 codespace codespace  4096 Jun  2 10:44 cloud
+-rw-rw-rw-  1 codespace codespace     6 Jun  4 06:30 demofile.txt
+-rw-rw-rw-  1 codespace codespace    15 Jun  4 06:28 hello.txt
+drwxrwxrwx+ 3 codespace codespace  4096 Jun  2 10:44 linux_for_devops
+-rw-rw-rw-  1 codespace codespace    11 Jun  4 06:30 myfile.txt
+-rw-rw-rw-  1 codespace codespace     0 Jun  2 10:38 newfile.txt
+lrwxrwxrwx  1 codespace codespace    59 Jun  4 06:13 softlink-file -> /workspaces/XXxyYY/ubuntu/linux_for_devops/cloud/devops.txt
+-rw-rw-rw-  1 codespace codespace 13143 Jun 10 08:10 terminal_log.txt
+
+
+
+
+
+ chmod 664 hello.txt
+@contri-o ➜ /workspaces/XXxyYY/ubuntu (main) $ ls -l
+total 36
+drwxrwxrwx+ 2 codespace codespace  4096 Jun  2 10:44 cloud
+-rw-rw-rw-  1 codespace codespace     6 Jun  4 06:30 demofile.txt
+-rw-rw-r--  1 codespace codespace    15 Jun  4 06:28 hello.txt
+drwxrwxrwx+ 3 codespace codespace  4096 Jun  2 10:44 linux_for_devops
+-rw-rw-rw-  1 codespace codespace    11 Jun  4 06:30 myfile.txt
+-rw-rw-rw-  1 codespace codespace     0 Jun  2 10:38 newfile.txt
+lrwxrwxrwx  1 codespace codespace    59 Jun  4 06:13 softlink-file -> /workspaces/XXxyYY/ubuntu/linux_for_devops/cloud/devops.txt
+-rw-rw-rw-  1 codespace codespace 13143 Jun 10 08:10 terminal_log.txt
+
+
+
+
+$ umask
+0022 {Off what, Ubuntu folder? or codespace , what?}
